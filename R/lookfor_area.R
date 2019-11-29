@@ -20,6 +20,7 @@ lookfor_area <-function(codes,data){
         dd1=data[data[,4]==do::left(code.i,2),]
         if (nrow(dd1)==0){
             message(code.i,tmcn::toUTF8(' \u6CA1\u6709\u67E5\u5230'))
+            codes[i]=NA
             next(i)
         }
         dd2=dd1[dd1[,5]==do::mid(code.i,3,2),]
@@ -40,7 +41,7 @@ lookfor_area <-function(codes,data){
     rownames(df)=NULL
     df=cbind(df[,!grepl(tmcn::toUTF8('\u7F16\u7801'),colnames(df))],
         df[,grepl(tmcn::toUTF8('\u7F16\u7801'),colnames(df))])
-
+    codes=codes[!is.na(codes)]
     df=cbind(code=codes,df)
     colnames(df)[1]=tmcn::toUTF8('\u6240\u67E5\u7F16\u7801')
     return(df)
