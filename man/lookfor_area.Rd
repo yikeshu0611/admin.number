@@ -20,7 +20,7 @@ To Look for Area from Codes
 \examples{
 \donttest{
 df=get_data()
-codes=c(320324,320323,320381)
+codes=c(32999999,320324,320323,320381)
 lookfor_area(codes,df)
 }
 }
